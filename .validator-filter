@@ -1,0 +1,8 @@
+########################################################################################################################
+# Each line of this file contains either a regular
+# expression or starts with "#" to indicate the line is a comment. Any error
+# message or warning message that matches a regular expression in the file is
+# filtered out (dropped/suppressed) by the w3c validator.
+########################################################################################################################
+Duplicate ID “demo”.*
+The first occurrence of ID “demo” was here.*

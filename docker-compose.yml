@@ -1,0 +1,25 @@
+version: '3.5'
+
+services:
+  web:
+    image: httpd:alpine
+    volumes:
+      - ./index.html:/usr/local/apache2/htdocs/index.html:ro
+
+  validator-new:
+    image: validator/validator:latest
+    volumes:
+      - ./.validator-filter:/.validator-filter:ro
+    depends_on:
+      - web
+    links:
+      - web:validator-docker-compose-demo.docker
+
+  validator-old:
+    image: validator/validator:travis-test
+    volumes:
+      - ./.validator-filter:/.validator-filter:ro
+    depends_on:
+      - web
+    links:
+      - web:validator-docker-compose-demo.docker
